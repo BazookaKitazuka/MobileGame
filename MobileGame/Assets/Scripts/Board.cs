@@ -92,7 +92,7 @@ public sealed class Board : MonoBehaviour
             {
                 var tile = Tiles[x, y];
                 var connectedTiles = tile.GetConnectedTiles();
-                if (connectedTiles.Count < 2) continue;
+                if (connectedTiles.Skip(1).Count() < 2) continue;
 
                 var shrinkSequence = DOTween.Sequence();
                 foreach (var connectedTile in connectedTiles) shrinkSequence.Join(connectedTile.icon.transform.DOScale(Vector3.zero, TweenDuration));
