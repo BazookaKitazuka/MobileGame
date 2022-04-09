@@ -85,14 +85,14 @@ public sealed class Board : MonoBehaviour
     }
     private async void Match()
     {
-
+        //checks for match of 3 or more
         for (var y = 0; y < Height; y++)
         {
             for (var x = 0; x < Width; x++)
             {
                 var tile = Tiles[x, y];
                 var connectedTiles = tile.GetConnectedTiles();
-                if (connectedTiles.Count < 2) continue;
+                if (connectedTiles.Skip(1).Count() < 2) continue;
 
                 var shrinkSequence = DOTween.Sequence();
                 foreach (var connectedTile in connectedTiles) shrinkSequence.Join(connectedTile.icon.transform.DOScale(Vector3.zero, TweenDuration));
