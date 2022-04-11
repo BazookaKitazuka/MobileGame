@@ -1763,7 +1763,7 @@ MonoBehaviour:
   m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
-  m_FillCenter: 1
+  m_FillCenter: 0
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
@@ -2727,6 +2727,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6370155134490559450, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611746027951856284, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
+      propertyPath: m_FillCenter
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7933342830204657326, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
