@@ -20,9 +20,7 @@ public sealed class Score : MonoBehaviour
 
             scoreBoard.SetText($"Score = {_score}");
         }
-        
-
-
+       
     }
     [SerializeField] private TextMeshProUGUI scoreBoard;
     private void Awake() => Instance = this;
