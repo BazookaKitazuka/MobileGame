@@ -98,6 +98,9 @@ public sealed class Board : MonoBehaviour
                 foreach (var connectedTile in connectedTiles) shrinkSequence.Join(connectedTile.icon.transform.DOScale(Vector3.zero, TweenDuration));
                 await shrinkSequence.Play().AsyncWaitForCompletion();
 
+                Score.Instance.ScoreCount += tile.Item.value * connectedTiles.Count;
+
+
                 var growSequence = DOTween.Sequence();
 
                 foreach (var connectedTile in connectedTiles)
