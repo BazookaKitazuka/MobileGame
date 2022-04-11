@@ -58,11 +58,12 @@ public sealed class Board : MonoBehaviour
         var icon2Transform = icon2.transform;
 
 
-        var sequence = DOTween.Sequence();
-        sequence.Join(icon1Transform.DOMove(icon2Transform.position, TweenDuration))
+          var moveSequence = DOTween.Sequence();
+       moveSequence.Join(icon1Transform.DOMove(icon2Transform.position, TweenDuration))
                 .Join(icon2Transform.DOMove(icon1Transform.position, TweenDuration));
 
-        await sequence.Play().AsyncWaitForCompletion();
+
+        await moveSequence.Play().AsyncWaitForCompletion();   
 
         icon1Transform.SetParent(tile2.transform);
         icon2Transform.SetParent(tile1.transform);
