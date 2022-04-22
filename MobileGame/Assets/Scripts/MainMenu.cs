@@ -15,6 +15,11 @@ public class MainMenu : MonoBehaviour
    {
       Application.Quit();
    }
+   public void GoBack()
+   {
+      //Change Game from game to title
+      SceneManager.LoadScene("Main_Menu");
+   }
 
 
 }
