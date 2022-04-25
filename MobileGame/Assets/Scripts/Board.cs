@@ -7,15 +7,16 @@ using UnityEngine;
 
 public sealed class Board : MonoBehaviour
 {
-
+  
     public static Board Instance { get; private set; }
-
+ 
     public Row[] rows;
     public Tile[,] Tiles { get; private set; }
     public int Width => Tiles.GetLength(0);
     public int Height => Tiles.GetLength(1);
     private readonly List<Tile> _selection = new List<Tile>();
     private const float TweenDuration = 0.25f;
+  
     private void Awake () => Instance = this; 
     private void Start()
     {
@@ -73,6 +74,7 @@ public sealed class Board : MonoBehaviour
         tile1.Item = tile2.Item;
         tile2.Item = tile1Item;
     }
+
     private bool CanMatch()
     {
         for(var y = 0; y < Height; y++)

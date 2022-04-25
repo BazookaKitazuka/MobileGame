@@ -8,7 +8,6 @@ public sealed class Score : MonoBehaviour
     public static Score Instance { get; private set; }
 
     private int _score;
-
     public int ScoreCount
     {
         get => _score;
