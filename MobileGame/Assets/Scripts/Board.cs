@@ -7,9 +7,9 @@ using UnityEngine;
 
 public sealed class Board : MonoBehaviour
 {
-  
+
     public static Board Instance { get; private set; }
- 
+    public  float MovesMax;
     public Row[] rows;
     public Tile[,] Tiles { get; private set; }
     public int Width => Tiles.GetLength(0);
@@ -47,6 +47,7 @@ public sealed class Board : MonoBehaviour
         }
         else
         {
+            Moves.Instance.MoveCount++;
             await Swap(_selection[0], _selection[1]);
         }
         _selection.Clear();

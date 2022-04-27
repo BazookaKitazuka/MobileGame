@@ -682,6 +682,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5813389380224933769, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
   m_PrefabInstance: {fileID: 375841825}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &520417808 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3857169548648675513, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
+  m_PrefabInstance: {fileID: 1525239433}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e713ffe460d76b1448099c54d8356103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &555686502
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +768,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555686502}
   m_CullTransparentMesh: 1
+--- !u!114 &650441295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3857169548648675513, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
+  m_PrefabInstance: {fileID: 905277725}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e713ffe460d76b1448099c54d8356103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &905277725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1171,6 +1193,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5813389380224933769, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
   m_PrefabInstance: {fileID: 905277725}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &921236168 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3857169548648675513, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
+  m_PrefabInstance: {fileID: 1067505521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e713ffe460d76b1448099c54d8356103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1067505521
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1816,6 +1849,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1462833690 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3857169548648675513, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
+  m_PrefabInstance: {fileID: 375841825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e713ffe460d76b1448099c54d8356103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1468361968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,7 +1876,7 @@ GameObject:
   - component: {fileID: 1468361974}
   m_Layer: 5
   m_Name: Board
-  m_TagString: Untagged
+  m_TagString: Board
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1951,7 +1995,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb3c8a4662743a45b11e5868c0ba6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: []
+  MovesMax: 8
+  rows:
+  - {fileID: 1616554528}
+  - {fileID: 921236168}
+  - {fileID: 520417808}
+  - {fileID: 650441295}
+  - {fileID: 1462833690}
 --- !u!1001 &1525239433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2366,6 +2416,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5813389380224933769, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
   m_PrefabInstance: {fileID: 1525239433}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1616554528 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3857169548648675513, guid: 08e2e0450bc2eed46af00eff6f339dd4, type: 3}
+  m_PrefabInstance: {fileID: 3604754122563071832}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e713ffe460d76b1448099c54d8356103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1695376601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,6 +2610,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed6bbd452747884c8a8a8b6685b7d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Boards: {fileID: 0}
+  _move: 9
   moveCount: {fileID: 1813874007}
 --- !u!1 &1988794031
 GameObject:

@@ -3,26 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
 public sealed class Moves : MonoBehaviour
 {
-public static Moves Instance { get; private set; }
+    
+    public static Moves Instance { get; private set; }
+    public GameObject Boards;
 
-    private int _move;
-    private int movesLeft;
-    public int MoveCount
+    public float _move = 0;
+    
+    
+    public float MoveCount 
     {
         get => _move;
         set
         {
-            if (_move == movesLeft) return;
+            if (_move == value) return;
 
-            _move = value;
+            _move -= 1 ;
 
-            moveCount.SetText($"Score = {_move}");
+            moveCount.SetText($"Moves = {_move}");
         }
 
     }
     [SerializeField] private TextMeshProUGUI moveCount;
     private void Awake() => Instance = this;
+
+
 
 }
