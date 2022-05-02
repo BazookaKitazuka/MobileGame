@@ -111,8 +111,10 @@ public sealed class Board : MonoBehaviour
 
 
                 var shrinkSequence = DOTween.Sequence();
-                foreach (var connectedTile in connectedTiles) shrinkSequence.Join(connectedTile.icon.transform.DOScale(Vector3.zero, TweenDuration));
-              //Instantiate(particle, new Vector2(tile.transform.position.x, tile.transform.position.y),Quaternion.identity);
+                foreach (var connectedTile in connectedTiles) {
+                    shrinkSequence.Join(connectedTile.icon.transform.DOScale(Vector3.zero, TweenDuration));
+                    Instantiate(particle, new Vector3(tile.transform.position.x, tile.transform.position.y, -10), Quaternion.identity);
+                }
                 Score.Instance.ScoreCount += tile.Item.value * connectedTiles.Count;
                 await shrinkSequence.Play().AsyncWaitForCompletion();
                
@@ -124,6 +126,7 @@ public sealed class Board : MonoBehaviour
 
                 foreach (var connectedTile in connectedTiles)
                 {
+                    
                     connectedTile.Item = ItemDatabase.Items[Random.Range(0, ItemDatabase.Items.Length)];
 
                     growSequence.Join(connectedTile.icon.transform.DOScale(Vector3.one, TweenDuration));

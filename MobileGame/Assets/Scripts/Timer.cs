@@ -26,7 +26,7 @@ public sealed class Timer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Time has run out!");
+                
                 timeLeft = 0;
                 timerOn = false;
             }
