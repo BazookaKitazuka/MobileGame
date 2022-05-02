@@ -16,7 +16,7 @@ public sealed class Board : MonoBehaviour
     public int Height => Tiles.GetLength(1);
     private readonly List<Tile> _selection = new List<Tile>();
     private const float TweenDuration = 0.25f;
-  
+  private ParticleSystem _particleSystem;
     private void Awake () => Instance = this;
 
     private void Start()
@@ -45,7 +45,7 @@ public sealed class Board : MonoBehaviour
         if (CanMatch())
         {
             Match();
-            Instantiate(particle, new Vector3(tile.x, tile.y), Quaternion.identity);
+           
         }
         else
         {
@@ -54,21 +54,25 @@ public sealed class Board : MonoBehaviour
         }
         _selection.Clear();
     }
-    
+
     public async Task Swap(Tile tile1, Tile tile2)
     {
+        if (tile1 != null || tile2 != null)
+        {
+            DOTween.Kill(transform);
+        }
+        else { 
         var icon1 = tile1.icon;
         var icon2 = tile2.icon;
         var icon1Transform = icon1.transform;
         var icon2Transform = icon2.transform;
 
 
-          var moveSequence = DOTween.Sequence();
-       moveSequence.Join(icon1Transform.DOMove(icon2Transform.position, TweenDuration))
-                .Join(icon2Transform.DOMove(icon1Transform.position, TweenDuration));
+        var moveSequence = DOTween.Sequence();
+        moveSequence.Join(icon1Transform.DOMove(icon2Transform.position, TweenDuration))
+                 .Join(icon2Transform.DOMove(icon1Transform.position, TweenDuration));
 
-
-        await moveSequence.Play().AsyncWaitForCompletion();   
+        await moveSequence.Play().AsyncWaitForCompletion();
 
         icon1Transform.SetParent(tile2.transform);
         icon2Transform.SetParent(tile1.transform);
@@ -78,6 +82,10 @@ public sealed class Board : MonoBehaviour
         tile1.Item = tile2.Item;
         tile2.Item = tile1Item;
     }
+    }
+   
+    
+
   // checks if objects can match
     private bool CanMatch()
     {
@@ -90,6 +98,11 @@ public sealed class Board : MonoBehaviour
 
                 return false;
     }
+     private void PlayParticle(float F)
+                {
+                    if (!_particleSystem.isPlaying)
+                        _particleSystem.Play();
+                }
     private async void Match()
     {
         //checks for match of 3 or more
@@ -101,13 +114,15 @@ public sealed class Board : MonoBehaviour
                 var connectedTiles = tile.GetConnectedTiles();
                 if (connectedTiles.Skip(1).Count() < 2) continue;
 
+
                 var shrinkSequence = DOTween.Sequence();
                 foreach (var connectedTile in connectedTiles) shrinkSequence.Join(connectedTile.icon.transform.DOScale(Vector3.zero, TweenDuration));
-               
-                await shrinkSequence.Play().AsyncWaitForCompletion();
-              
-                Debug.Log($"Partile placed)");
+                Instantiate(particle, new Vector2(x,y),Quaternion.identity);
                 Score.Instance.ScoreCount += tile.Item.value * connectedTiles.Count;
+                await shrinkSequence.Play().AsyncWaitForCompletion();
+               
+                Debug.Log($"Partile placed)");
+                
                 
 
                 var growSequence = DOTween.Sequence();
