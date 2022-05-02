@@ -5,6 +5,7 @@ using TMPro;
 
 public sealed class Score : MonoBehaviour
 {
+    public float maxScore;
     public static Score Instance { get; private set; }
 
     private int _score;
@@ -24,5 +25,11 @@ public sealed class Score : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreBoard;
     private void Awake() => Instance = this;
     
+    public void Max()
+    {
+        if(_score == maxScore)
+        {
 
+        }
+    }
 }

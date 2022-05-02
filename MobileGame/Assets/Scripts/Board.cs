@@ -9,7 +9,7 @@ public sealed class Board : MonoBehaviour
 {
 
     public static Board Instance { get; private set; }
-    public  float MovesMax;
+
     public Row[] rows;
     public Tile[,] Tiles { get; private set; }
     public int Width => Tiles.GetLength(0);
@@ -17,7 +17,8 @@ public sealed class Board : MonoBehaviour
     private readonly List<Tile> _selection = new List<Tile>();
     private const float TweenDuration = 0.25f;
   
-    private void Awake () => Instance = this; 
+    private void Awake () => Instance = this;
+
     private void Start()
     {
         Tiles = new Tile[rows.Max(row => row.tiles.Length), rows.Length];
@@ -52,6 +53,7 @@ public sealed class Board : MonoBehaviour
         }
         _selection.Clear();
     }
+    
     public async Task Swap(Tile tile1, Tile tile2)
     {
         var icon1 = tile1.icon;
@@ -75,7 +77,7 @@ public sealed class Board : MonoBehaviour
         tile1.Item = tile2.Item;
         tile2.Item = tile1Item;
     }
-
+  
     private bool CanMatch()
     {
         for(var y = 0; y < Height; y++)

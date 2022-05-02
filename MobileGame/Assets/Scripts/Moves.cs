@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public sealed class Moves : MonoBehaviour
 {
     
     public static Moves Instance { get; private set; }
-    public GameObject Boards;
-
+   
     public float _move = 0;
     
     
@@ -22,13 +22,24 @@ public sealed class Moves : MonoBehaviour
 
             _move -= 1 ;
 
-            moveCount.SetText($"Moves = {_move}");
+            moveCount.SetText($" {_move}");
         }
 
     }
     [SerializeField] private TextMeshProUGUI moveCount;
     private void Awake() => Instance = this;
+    public void Start()
+    {
+        moveCount.SetText(_move.ToString());
+    }
+  
+    public void Update()
+    {
+        if (_move == 0)
+        {
+            SceneManager.LoadScene("LoserScreen"); 
 
-
+        }
+    }
 
 }
