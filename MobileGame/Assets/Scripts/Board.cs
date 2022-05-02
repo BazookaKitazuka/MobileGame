@@ -9,7 +9,7 @@ public sealed class Board : MonoBehaviour
 {
 
     public static Board Instance { get; private set; }
-
+    public GameObject particle;
     public Row[] rows;
     public Tile[,] Tiles { get; private set; }
     public int Width => Tiles.GetLength(0);
@@ -45,6 +45,7 @@ public sealed class Board : MonoBehaviour
         if (CanMatch())
         {
             Match();
+            Instantiate(particle, new Vector3(tile.x, tile.y), Quaternion.identity);
         }
         else
         {
@@ -77,7 +78,7 @@ public sealed class Board : MonoBehaviour
         tile1.Item = tile2.Item;
         tile2.Item = tile1Item;
     }
-  
+  // checks if objects can match
     private bool CanMatch()
     {
         for(var y = 0; y < Height; y++)
@@ -102,10 +103,12 @@ public sealed class Board : MonoBehaviour
 
                 var shrinkSequence = DOTween.Sequence();
                 foreach (var connectedTile in connectedTiles) shrinkSequence.Join(connectedTile.icon.transform.DOScale(Vector3.zero, TweenDuration));
+               
                 await shrinkSequence.Play().AsyncWaitForCompletion();
-
+              
+                Debug.Log($"Partile placed)");
                 Score.Instance.ScoreCount += tile.Item.value * connectedTiles.Count;
-
+                
 
                 var growSequence = DOTween.Sequence();
 

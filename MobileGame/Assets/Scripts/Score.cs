@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public sealed class Score : MonoBehaviour
@@ -29,7 +30,7 @@ public sealed class Score : MonoBehaviour
     {
         if(_score == maxScore)
         {
-
+            SceneManager.LoadScene("");
         }
     }
 }

@@ -728,7 +728,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.0002594, y: 0.0021973}
-  m_SizeDelta: {x: 621.3, y: 868}
+  m_SizeDelta: {x: 850, y: 868}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555686504
 MonoBehaviour:
@@ -2430,6 +2430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb3c8a4662743a45b11e5868c0ba6a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 6433706653878856800, guid: fd2a4b1d1b7f1b7499c39136783c7220, type: 3}
   rows:
   - {fileID: 1616554528}
   - {fileID: 921236168}
