@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 using TMPro;
 
 public sealed class Timer : MonoBehaviour
@@ -32,6 +33,7 @@ public sealed class Timer : MonoBehaviour
         }
         if(timeLeft == 0)
         {
+            DOTween.KillAll();
             SceneManager.LoadScene("LoserScreen");
         }
     }

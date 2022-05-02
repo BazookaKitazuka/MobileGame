@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 
@@ -38,7 +39,7 @@ public sealed class Moves : MonoBehaviour
         if (_move == 0)
         {
             SceneManager.LoadScene("LoserScreen"); 
-
+            DOTween.KillAll();
         }
     }
 

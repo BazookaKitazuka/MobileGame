@@ -49,6 +49,8 @@ public sealed class Board : MonoBehaviour
         }
         else
         {
+            Debug.Log("Swapped");
+
             Moves.Instance.MoveCount++;
             await Swap(_selection[0], _selection[1]);
         }
@@ -57,31 +59,28 @@ public sealed class Board : MonoBehaviour
 
     public async Task Swap(Tile tile1, Tile tile2)
     {
-        if (tile1 != null || tile2 != null)
-        {
-            DOTween.Kill(transform);
-        }
-        else { 
-        var icon1 = tile1.icon;
-        var icon2 = tile2.icon;
-        var icon1Transform = icon1.transform;
-        var icon2Transform = icon2.transform;
+       
+            var icon1 = tile1.icon;
+            var icon2 = tile2.icon;
+            var icon1Transform = icon1.transform;
+            var icon2Transform = icon2.transform;
 
 
-        var moveSequence = DOTween.Sequence();
-        moveSequence.Join(icon1Transform.DOMove(icon2Transform.position, TweenDuration))
-                 .Join(icon2Transform.DOMove(icon1Transform.position, TweenDuration));
+            var moveSequence = DOTween.Sequence();
+            moveSequence.Join(icon1Transform.DOMove(icon2Transform.position, TweenDuration))
+                     .Join(icon2Transform.DOMove(icon1Transform.position, TweenDuration));
+            
+            await moveSequence.Play().AsyncWaitForCompletion();
 
-        await moveSequence.Play().AsyncWaitForCompletion();
-
-        icon1Transform.SetParent(tile2.transform);
-        icon2Transform.SetParent(tile1.transform);
-        tile1.icon = icon2;
-        tile2.icon = icon1;
-        var tile1Item = tile1.Item;
-        tile1.Item = tile2.Item;
-        tile2.Item = tile1Item;
-    }
+            icon1Transform.SetParent(tile2.transform);
+            icon2Transform.SetParent(tile1.transform);
+            tile1.icon = icon2;
+            tile2.icon = icon1;
+            var tile1Item = tile1.Item;
+            tile1.Item = tile2.Item;
+            tile2.Item = tile1Item;
+            
+        
     }
    
     
@@ -98,11 +97,7 @@ public sealed class Board : MonoBehaviour
 
                 return false;
     }
-     private void PlayParticle(float F)
-                {
-                    if (!_particleSystem.isPlaying)
-                        _particleSystem.Play();
-                }
+   
     private async void Match()
     {
         //checks for match of 3 or more
@@ -117,7 +112,7 @@ public sealed class Board : MonoBehaviour
 
                 var shrinkSequence = DOTween.Sequence();
                 foreach (var connectedTile in connectedTiles) shrinkSequence.Join(connectedTile.icon.transform.DOScale(Vector3.zero, TweenDuration));
-                Instantiate(particle, new Vector2(x,y),Quaternion.identity);
+              //Instantiate(particle, new Vector2(tile.transform.position.x, tile.transform.position.y),Quaternion.identity);
                 Score.Instance.ScoreCount += tile.Item.value * connectedTiles.Count;
                 await shrinkSequence.Play().AsyncWaitForCompletion();
                
