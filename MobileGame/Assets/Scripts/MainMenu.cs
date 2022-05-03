@@ -26,9 +26,14 @@ public class MainMenu : MonoBehaviour
 
    public void Update()
    {
-      var currentScene = SceneManager.GetActiveScene();
-      var currentSceneName = currentScene.name;
-      previousScene = currentSceneName;
+      var activeScene = Application.loadedLevelName;
+
+      if (activeScene != "LoserScreen")
+      {
+         var currentScene = SceneManager.GetActiveScene();
+         var currentSceneName = currentScene.name;
+         previousScene = currentSceneName;
+      }
    } 
    
    

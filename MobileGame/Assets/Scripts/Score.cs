@@ -27,13 +27,14 @@ public sealed class Score : MonoBehaviour
     }
     [SerializeField] private TextMeshProUGUI scoreBoard;
     private void Awake() => Instance = this;
+<<<<<<< Updated upstream
    
     public void Update()
     {
         if(_score > maxScore)
         {
             DOTween.KillAll();
-            SceneManager.LoadScene("Level2");
+            SceneManager.LoadScene("WinnerScreen");
         }
     }
 }
