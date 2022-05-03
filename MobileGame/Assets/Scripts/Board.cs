@@ -13,6 +13,8 @@ public sealed class Board : MonoBehaviour
     public Row[] rows;
     public Tile[,] Tiles { get; private set; }
     public int Width => Tiles.GetLength(0);
+    [SerializeField] private AudioClip matchSound;
+    [SerializeField] private AudioSource audioSource;
     public int Height => Tiles.GetLength(1);
     private readonly List<Tile> _selection = new List<Tile>();
     private const float TweenDuration = 0.25f;
@@ -116,6 +118,7 @@ public sealed class Board : MonoBehaviour
                     Instantiate(particle, new Vector3(tile.transform.position.x, tile.transform.position.y, -10), Quaternion.identity);
                 }
                 Score.Instance.ScoreCount += tile.Item.value * connectedTiles.Count;
+                audioSource.PlayOneShot(matchSound);
                 await shrinkSequence.Play().AsyncWaitForCompletion();
                
                 Debug.Log($"Partile placed)");
@@ -132,6 +135,8 @@ public sealed class Board : MonoBehaviour
                     growSequence.Join(connectedTile.icon.transform.DOScale(Vector3.one, TweenDuration));
                 }
                 await growSequence.Play().AsyncWaitForCompletion();
+                x = 0;
+                y = 0;
             }
         }
     }
