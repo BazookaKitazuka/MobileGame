@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using DG.Tweening;
 
 public sealed class Score : MonoBehaviour
 {
+    public GameObject Scene;
     public float maxScore;
     public static Score Instance { get; private set; }
 
@@ -25,12 +27,13 @@ public sealed class Score : MonoBehaviour
     }
     [SerializeField] private TextMeshProUGUI scoreBoard;
     private void Awake() => Instance = this;
-    
-    public void Max()
+   
+    public void Update()
     {
-        if(_score == maxScore)
+        if(_score > maxScore)
         {
-            SceneManager.LoadScene("");
+            DOTween.KillAll();
+            SceneManager.LoadScene("Level2");
         }
     }
 }

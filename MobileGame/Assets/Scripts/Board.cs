@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public sealed class Board : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public sealed class Board : MonoBehaviour
 
     private void Start()
     {
+        DOTween.KillAll();
         Tiles = new Tile[rows.Max(row => row.tiles.Length), rows.Length];
         for( var y = 0; y < Height; y++)
         {
@@ -47,7 +49,7 @@ public sealed class Board : MonoBehaviour
         if (CanMatch())
         {
             Match();
-           
+            Moves.Instance.MoveCount++;
         }
         else
         {
@@ -114,9 +116,10 @@ public sealed class Board : MonoBehaviour
 
                 var shrinkSequence = DOTween.Sequence();
                 foreach (var connectedTile in connectedTiles) {
-                    shrinkSequence.Join(connectedTile.icon.transform.DOScale(Vector3.zero, TweenDuration));
+              
                     
-                   
+                    
+                        shrinkSequence.Join(connectedTile.icon.transform.DOScale(Vector3.zero, TweenDuration));
                         Instantiate(particle, new Vector3(connectedTile.transform.position.x, connectedTile.transform.position.y, -10), Quaternion.identity);
                     
                 }
@@ -143,4 +146,5 @@ public sealed class Board : MonoBehaviour
             }
         }
     }
+   
 }
