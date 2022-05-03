@@ -980,7 +980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4576433875511320425, guid: 348a6603f74b96e49ac314b1d84aad1d, type: 3}
       propertyPath: maxScore
-      value: 1000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 4576433875511320430, guid: 348a6603f74b96e49ac314b1d84aad1d, type: 3}
       propertyPath: m_Pivot.x

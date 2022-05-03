@@ -11,7 +11,7 @@ public sealed class Moves : MonoBehaviour
     
     public static Moves Instance { get; private set; }
    
-    public float _move = 0;
+    public float _move = 10;
     
     
     public float MoveCount 
