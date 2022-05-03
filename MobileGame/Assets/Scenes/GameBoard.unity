@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scene: {fileID: 0}
-  maxScore: 15
+  maxScore: 200
   scoreBoard: {fileID: 1093496791}
 --- !u!1 &1238584255
 GameObject:
@@ -1076,7 +1076,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4576433875695717006, guid: 348a6603f74b96e49ac314b1d84aad1d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 34.910995
+      value: 34.91098
       objectReference: {fileID: 0}
     - target: {fileID: 4576433875695717006, guid: 348a6603f74b96e49ac314b1d84aad1d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1088,6 +1088,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4576433876031071532, guid: 348a6603f74b96e49ac314b1d84aad1d, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4576433876031071532, guid: 348a6603f74b96e49ac314b1d84aad1d, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4576433876031071532, guid: 348a6603f74b96e49ac314b1d84aad1d, type: 3}
