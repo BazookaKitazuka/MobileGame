@@ -5,21 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-   public void playGame()
+   
+   public static string previousScene;
+
+   public void goToScene(string scene)
    {
-       //Change Game from title to game
-        SceneManager.LoadScene("GameBoard");
+      SceneManager.LoadScene(scene);
+      var currentScene = SceneManager.GetActiveScene();
+      var currentSceneName = currentScene.name;
+      previousScene = currentSceneName;
    }
 
+   public void goPrev()
+   {
+      SceneManager.LoadScene(previousScene);
+      var currentScene = SceneManager.GetActiveScene();
+      var currentSceneName = currentScene.name;
+      previousScene = currentSceneName;
+   }
+
+   public void Update()
+   {
+      var currentScene = SceneManager.GetActiveScene();
+      var currentSceneName = currentScene.name;
+      previousScene = currentSceneName;
+   } 
+   
+   
     public void quitGame()
    {
       Application.Quit();
    }
-   public void GoBack()
-   {
-      //Change Game from game to title
-      SceneManager.LoadScene("Main_Menu");
-   }
-
-
 }
+
