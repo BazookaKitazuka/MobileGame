@@ -9,21 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Main_Menu.unity
     guid: db4c8d649bb394a4da4142ce7ba36453
   - enabled: 1
+    path: Assets/Scenes/H2P.unity
+    guid: 6114aba0971ec4263a8daf9a59a53d6e
+  - enabled: 1
+    path: Assets/Scenes/Levels.unity
+    guid: 6a8f77568f1fc4851ad3f40cab7e9886
+  - enabled: 1
+    path: Assets/Scenes/GameBoard.unity
+    guid: 394540f3fc659864e8a36b23b67d393d
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 94dfbedbfde70ce49a4233c8d433218f
+  - enabled: 1
     path: Assets/Scenes/WinnerScreen.unity
     guid: d0361bc1a254c437faad281bc8c6cb8a
   - enabled: 1
     path: Assets/Scenes/LoserScreen.unity
     guid: a504693dc8760754d98419b05dfa5a5c
-  - enabled: 1
-    path: Assets/Scenes/Levels.unity
-    guid: 6a8f77568f1fc4851ad3f40cab7e9886
-  - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: 94dfbedbfde70ce49a4233c8d433218f
-  - enabled: 1
-    path: Assets/Scenes/H2P.unity
-    guid: 6114aba0971ec4263a8daf9a59a53d6e
-  - enabled: 1
-    path: Assets/Scenes/GameBoard.unity
-    guid: 394540f3fc659864e8a36b23b67d393d
   m_configObjects: {}
